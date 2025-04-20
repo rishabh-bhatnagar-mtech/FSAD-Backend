@@ -6,98 +6,122 @@ api = Api(app)
 
 
 class Sessions(Resource):
-    def post(self):
+    @staticmethod
+    def post():
         return jsonify({"message": "Login endpoint"})
 
-    def delete(self, id):
+    @staticmethod
+    def delete(id):
         return jsonify({"message": f"Logout endpoint {id}"})
 
 
 class Me(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return jsonify({"message": "Current user endpoint"})
 
 
 class Dashboard(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return jsonify({"message": "Dashboard endpoint"})
 
 
 class Students(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return jsonify({"message": "List students endpoint"})
 
-    def post(self):
+    @staticmethod
+    def post():
         return jsonify({"message": "Create student(s) endpoint"})
 
 
 class Student(Resource):
-    def get(self, id):
+    @staticmethod
+    def get(id):
         return jsonify({"message": f"Get student {id}"})
 
-    def put(self, id):
+    @staticmethod
+    def put(id):
         return jsonify({"message": f"Update student {id}"})
 
-    def patch(self, id):
+    @staticmethod
+    def patch(id):
         return jsonify({"message": f"Partial update student {id}"})
 
-    def delete(self, id):
+    @staticmethod
+    def delete(id):
         return jsonify({"message": f"Delete student {id}"})
 
 
 class Drives(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return jsonify({"message": "List drives endpoint"})
 
-    def post(self):
+    @staticmethod
+    def post():
         return jsonify({"message": "Create drive endpoint"})
 
 
 class Drive(Resource):
-    def get(self, id):
+    @staticmethod
+    def get(id):
         return jsonify({"message": f"Get drive {id}"})
 
-    def put(self, id):
+    @staticmethod
+    def put(id):
         return jsonify({"message": f"Update drive {id}"})
 
-    def patch(self, id):
+    @staticmethod
+    def patch(id):
         return jsonify({"message": f"Partial update drive {id}"})
 
-    def delete(self, id):
+    @staticmethod
+    def delete(id):
         return jsonify({"message": f"Delete drive {id}"})
 
 
 class Vaccinations(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return jsonify({"message": "List vaccinations endpoint"})
 
-    def post(self):
+    @staticmethod
+    def post():
         return jsonify({"message": "Create vaccination endpoint"})
 
 
 class Vaccination(Resource):
-    def get(self, id):
+    @staticmethod
+    def get(id):
         return jsonify({"message": f"Get vaccination {id}"})
 
-    def put(self, id):
+    @staticmethod
+    def put(id):
         return jsonify({"message": f"Update vaccination {id}"})
 
-    def delete(self, id):
+    @staticmethod
+    def delete(id):
         return jsonify({"message": f"Delete vaccination {id}"})
 
 
 class StudentVaccinations(Resource):
-    def post(self, studentId):
-        return jsonify({"message": f"Create vaccination for student {studentId}"})
+    @staticmethod
+    def post(student_id: str):
+        return jsonify({"message": f"Create vaccination for student {student_id}"})
 
 
 class ReportsVaccinations(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return jsonify({"message": "List vaccination reports"})
 
 
 class ReportsExport(Resource):
-    def get(self):
+    @staticmethod
+    def get():
         return jsonify({"message": "Export reports endpoint"})
 
 
