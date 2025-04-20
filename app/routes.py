@@ -1,9 +1,6 @@
 from flask import Flask, jsonify
 from flask_restful import Api, Resource
 
-app = Flask(__name__)
-api = Api(app)
-
 
 class Sessions(Resource):
     @staticmethod
@@ -125,16 +122,22 @@ class ReportsExport(Resource):
         return jsonify({"message": "Export reports endpoint"})
 
 
-api.add_resource(Sessions, '/sessions')
-api.add_resource(Sessions, '/sessions/<string:id>', endpoint='session')
-api.add_resource(Me, '/me')
-api.add_resource(Dashboard, '/dashboard')
-api.add_resource(Students, '/students')
-api.add_resource(Student, '/students/<string:id>')
-api.add_resource(Drives, '/drives')
-api.add_resource(Drive, '/drives/<string:id>')
-api.add_resource(Vaccinations, '/vaccinations')
-api.add_resource(Vaccination, '/vaccinations/<string:id>')
-api.add_resource(StudentVaccinations, '/students/<string:studentId>/vaccinations')
-api.add_resource(ReportsVaccinations, '/reports/vaccinations')
-api.add_resource(ReportsExport, '/reports/vaccinations/export')
+def create_app():
+    app = Flask(__name__)
+    api = Api(app)
+
+    api.add_resource(Sessions, '/sessions')
+    api.add_resource(Sessions, '/sessions/<string:id>', endpoint='session')
+    api.add_resource(Me, '/me')
+    api.add_resource(Dashboard, '/dashboard')
+    api.add_resource(Students, '/students')
+    api.add_resource(Student, '/students/<string:id>')
+    api.add_resource(Drives, '/drives')
+    api.add_resource(Drive, '/drives/<string:id>')
+    api.add_resource(Vaccinations, '/vaccinations')
+    api.add_resource(Vaccination, '/vaccinations/<string:id>')
+    api.add_resource(StudentVaccinations, '/students/<string:studentId>/vaccinations')
+    api.add_resource(ReportsVaccinations, '/reports/vaccinations')
+    api.add_resource(ReportsExport, '/reports/vaccinations/export')
+
+    return app
