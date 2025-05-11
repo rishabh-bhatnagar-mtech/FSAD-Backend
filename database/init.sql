@@ -4,7 +4,8 @@ CREATE TABLE drives
     name               VARCHAR(100) NOT NULL,
     date               DATE         NOT NULL,
     doses_available    INT          NOT NULL,
-    applicable_classes VARCHAR(255) NOT NULL
+    applicable_classes VARCHAR(255) NOT NULL,
+    vaccine_name       VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE vaccines
@@ -28,10 +29,10 @@ CREATE TABLE student_vaccines
     PRIMARY KEY (student_id, vaccine_id)
 );
 
-INSERT INTO drives (id, name, date, doses_available, applicable_classes)
-VALUES ('DRV001', 'Drive A', '2024-07-01', 100, '10th,11th,12th'),
-       ('DRV002', 'Drive B', '2024-07-02', 150, '9th,10th'),
-       ('DRV003', 'Drive C', '2024-07-03', 200, '11th,12th');
+INSERT INTO drives (id, name, date, doses_available, applicable_classes, vaccine_name)
+VALUES ('DRV001', 'Drive A', '2024-07-01', 100, '10th,11th,12th', 'Covishield'),
+       ('DRV002', 'Drive B', '2024-07-02', 150, '9th,10th', 'Covaxin'),
+       ('DRV003', 'Drive C', '2024-07-03', 200, '11th,12th', 'Covishield');
 
 
 INSERT INTO vaccines (name)
