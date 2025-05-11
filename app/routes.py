@@ -1,12 +1,9 @@
 from flask import Flask
-from flask_restful import Api
+from flask_restful_swagger_3 import Api
 
-from app.handlers.auth import Sessions, Me
 from app.handlers.dashboard import Dashboard
-from app.handlers.drive import Drives, Drive
-from app.handlers.report import ReportsVaccinations, ReportsExport
+from app.handlers.drive import Drives
 from app.handlers.student import Students, Student
-from app.handlers.vaccination import Vaccinations, Vaccination, StudentVaccinations
 
 
 def create_app():
@@ -20,18 +17,9 @@ def create_app():
         response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,OPTIONS'
         return response
 
-    api.add_resource(Sessions, '/sessions')
-    api.add_resource(Sessions, '/sessions/<string:id>', endpoint='session')
-    api.add_resource(Me, '/me')
     api.add_resource(Dashboard, '/stats')
     api.add_resource(Students, '/students')
     api.add_resource(Student, '/students/<string:student_id>')
     api.add_resource(Drives, '/drives')
-    api.add_resource(Drive, '/drives/<string:id>')
-    api.add_resource(Vaccinations, '/vaccinations')
-    api.add_resource(Vaccination, '/vaccinations/<string:id>')
-    api.add_resource(StudentVaccinations, '/students/<string:studentId>/vaccinations')
-    api.add_resource(ReportsVaccinations, '/reports/vaccinations')
-    api.add_resource(ReportsExport, '/reports/vaccinations/export')
 
     return app

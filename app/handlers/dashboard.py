@@ -1,11 +1,20 @@
 from flask import jsonify
-from flask_restful import Resource
+from flask_restful_swagger_3 import swagger, Resource
 
 from app.db import get_db
 
 
 class Dashboard(Resource):
     @staticmethod
+    @swagger.tags(['Dashboard'])
+    @swagger.response(response_code=200, description='Return vaccination stats',
+                      schema={'type': 'object',
+                              'properties': {
+                                  'totalStudents': {'type': 'integer'},
+                                  'vaccinatedStudents': {'type': 'integer'},
+                                  'unvaccinatedStudents': {'type': 'integer'}
+                              }
+                              })
     def get():
         conn = get_db()
         cur = conn.cursor()

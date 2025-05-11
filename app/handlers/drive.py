@@ -52,21 +52,3 @@ class Drives(Resource):
             conn.rollback()
             cur.close()
             return make_response(jsonify({"error": str(e)}), 400)
-
-
-class Drive(Resource):
-    @staticmethod
-    def get(id):
-        return jsonify({"message": f"Get drive {id}"})
-
-    @staticmethod
-    def put(id):
-        return jsonify({"message": f"Update drive {id}"})
-
-    @staticmethod
-    def patch(id):
-        return jsonify({"message": f"Partial update drive {id}"})
-
-    @staticmethod
-    def delete(id):
-        return jsonify({"message": f"Delete drive {id}"})
