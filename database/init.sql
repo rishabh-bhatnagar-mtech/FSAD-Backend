@@ -1,7 +1,10 @@
 CREATE TABLE drives
 (
-    id   VARCHAR(16) PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    id                 VARCHAR(16) PRIMARY KEY,
+    name               VARCHAR(100) NOT NULL,
+    date               DATE         NOT NULL,
+    doses_available    INT          NOT NULL,
+    applicable_classes VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE vaccines
@@ -25,10 +28,11 @@ CREATE TABLE student_vaccines
     PRIMARY KEY (student_id, vaccine_id)
 );
 
-INSERT INTO drives (id, name)
-VALUES ('DRV001', 'Drive A'),
-       ('DRV002', 'Drive B'),
-       ('DRV003', 'Drive C');
+INSERT INTO drives (id, name, date, doses_available, applicable_classes)
+VALUES ('DRV001', 'Drive A', '2024-07-01', 100, '10th,11th,12th'),
+       ('DRV002', 'Drive B', '2024-07-02', 150, '9th,10th'),
+       ('DRV003', 'Drive C', '2024-07-03', 200, '11th,12th');
+
 
 INSERT INTO vaccines (name)
 VALUES ('Covishield'),
