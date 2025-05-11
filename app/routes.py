@@ -13,6 +13,13 @@ def create_app():
     app = Flask(__name__)
     api = Api(app)
 
+    @app.after_request
+    def add_cors_headers(response):
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
+        response.headers['Access-Control-Allow-Methods'] = 'GET,PUT,POST,DELETE,OPTIONS'
+        return response
+
     api.add_resource(Sessions, '/sessions')
     api.add_resource(Sessions, '/sessions/<string:id>', endpoint='session')
     api.add_resource(Me, '/me')
