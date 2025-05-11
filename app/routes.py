@@ -5,7 +5,7 @@ from app.handlers.auth import Sessions, Me
 from app.handlers.dashboard import Dashboard
 from app.handlers.drive import Drives, Drive
 from app.handlers.report import ReportsVaccinations, ReportsExport
-from app.handlers.student import Students, Student
+from app.handlers.student import Students
 from app.handlers.vaccination import Vaccinations, Vaccination, StudentVaccinations
 
 
@@ -18,7 +18,6 @@ def create_app():
     api.add_resource(Me, '/me')
     api.add_resource(Dashboard, '/dashboard')
     api.add_resource(Students, '/students')
-    api.add_resource(Student, '/students/<string:id>')
     api.add_resource(Drives, '/drives')
     api.add_resource(Drive, '/drives/<string:id>')
     api.add_resource(Vaccinations, '/vaccinations')
