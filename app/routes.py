@@ -23,7 +23,7 @@ def create_app():
     api.add_resource(Sessions, '/sessions')
     api.add_resource(Sessions, '/sessions/<string:id>', endpoint='session')
     api.add_resource(Me, '/me')
-    api.add_resource(Dashboard, '/dashboard')
+    api.add_resource(Dashboard, '/stats')
     api.add_resource(Students, '/students')
     api.add_resource(Student, '/students/<string:student_id>')
     api.add_resource(Drives, '/drives')
