@@ -2,7 +2,7 @@ from flask import request
 from flask_restx import Namespace, Resource, fields
 from app.db import get_db
 
-api = Namespace('Drives', description='Drive management')
+api = Namespace('drives', description='Drive management')
 
 drive_model = api.model('Drive', {
     'id': fields.String(required=True, description='Drive ID'),

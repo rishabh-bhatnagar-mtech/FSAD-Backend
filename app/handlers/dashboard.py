@@ -1,7 +1,7 @@
 from flask_restx import Namespace, Resource, fields
 from app.db import get_db
 
-api = Namespace('Dashboard', description='Dashboard operations')
+api = Namespace('dashboard', description='Dashboard operations')
 
 dashboard_stats = api.model('DashboardStats', {
     'totalStudents': fields.Integer,

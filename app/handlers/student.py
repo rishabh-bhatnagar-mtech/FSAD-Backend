@@ -3,7 +3,7 @@ from flask_restx import Namespace, Resource, fields
 
 from app.db import get_db
 
-api = Namespace('Students', description='Student management')
+api = Namespace('students', description='Student management')
 
 vaccine_model = api.model('Vaccine', {
     'name': fields.String(required=True, description='Vaccine name'),
